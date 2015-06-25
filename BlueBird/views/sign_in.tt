@@ -1,0 +1,5 @@
+<div class="container-fluid">
+	<form method="POST" action="/twitter_sign_in">
+  		<input type="image" src="public/images/sign-in-with-twitter-gray.png" alt="Submit">
+	</form>		
+</div>

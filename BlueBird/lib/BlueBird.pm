@@ -7,4 +7,8 @@ get '/' => sub {
     template 'index';
 };
 
+post '/sign_in' => sub {
+    template 'sign_in';
+};
+
 true;
