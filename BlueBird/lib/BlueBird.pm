@@ -32,11 +32,11 @@ post '/api/common_follows' => sub {
     {
 	my $user_name = $user_list[$i];
 	debug "$user_name\n";
-        
-        #for ( my $cursor = -1, my $r; $cursor; $cursor = $r->{next_cursor} ) {
-            my $r = $twitter->friends_list({ screen_name => $user_name});
+	my @user_names = ();        
+        for ( my $cursor = -1, my $r; $cursor; $cursor = $r->{next_cursor} ) {
+            my $r = $twitter->friends_list({ screen_name => $user_name, cursor => $cursor });
 	    debug "$r->{users}\n";
-	    my @user_names = ();
+	    #my @user_names = ();
 	    my @user_array =  @{ $r->{ users } };
 	    foreach(@user_array)
 	    {
@@ -45,7 +45,7 @@ post '/api/common_follows' => sub {
 	    }
             #$r = $twitter->friends_list({ screen_name => $user_name, cursor => $cursor });
            
-        #} 
+        } 
         push @follow_array, [ @user_names ];
 	debug "@follow_array\n"
     }
