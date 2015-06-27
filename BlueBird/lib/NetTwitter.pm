@@ -2,40 +2,25 @@ use strict;
 package NetTwitter;
 use Net::Twitter;
 use base 'Exporter';
-our @EXPORT_OK = ('say_token');
-
-sub some_function {
-    # put sane code here
-    return 123;
-}
-
-
-my $nt = Net::Twitter->new(
-	traits          => [ qw/AppAuth API::RESTv1_1/ ],
-	consumer_key    => 'JkAf2da5YbQp6SKY8j5ManVOS',
-	consumer_secret => 'fUhbRyqaTkxeimxonnSdNxuGJTF3YpHwBLiRGlz0WXXlzBYWxO',
-);
-
-$nt->request_access_token;
-
-
-sub return_token {
-        # put sane code here
-	#say 'token: ', $nt->access_token;
-        return $nt->access_token;
-}
+#our @EXPORT_OK = ('say_token');
 
 sub return_object {
-        # put sane code here
-	#say 'token: ', $nt->access_token;
+	our $nt = Net::Twitter->new(
+		traits          => [ qw/AppAuth API::RESTv1_1/ ],
+		consumer_key    => 'in0v5PZIIXuTzw8ewEL6mhi0g',
+		consumer_secret => 'IHkLyL91FuoKPkigSsFtqkdGMeZ9pfLnhgRriOzQ1cdMbF4fH1',
+	);
+	$nt->request_access_token;
         return $nt;
 }
 
+sub user_list_intersection {
+	my $twitter = return_object();
+	my @user_list = @_;
+	our @follow_array = ();
 
-my $r = $nt->followers_ids({
-	screen_name => 'timtoady',
-	cursor      => -1,
-});
+}
 
+1;
 # good until invalidated, with ...
 #$nt->invalidate_token
