@@ -15,9 +15,8 @@ sub return_object {
 }
 
 sub user_list_intersection {
-        my $twitter = return_object();
-        print "$twitter";
-	my (@user_list) = @_;
+        #my $twitter = return_object();
+	my ($twitter, @user_list) = @_;
 	our @follow_array = ();   
 
         #for each user in list get follows

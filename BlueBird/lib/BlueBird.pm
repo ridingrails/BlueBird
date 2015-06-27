@@ -51,7 +51,7 @@ post '/api/common_follows' => sub {
         try 
         { 
             my @user_list = @{$data->{'user_list'}}; 
-            return NetTwitter::user_list_intersection(@user_list);
+            return NetTwitter::user_list_intersection($twitter, @user_list);
         }
         catch 
         {
