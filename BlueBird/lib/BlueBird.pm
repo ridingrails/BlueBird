@@ -25,7 +25,7 @@ post '/api/recent' => sub {
         catch 
         {
             my ($exception) = @_;
-	    handle_exceptions($exception);
+	    handle_exceptions($exception, "sceen name");
         };
     }
     else 
@@ -47,7 +47,7 @@ post '/api/common_follows' => sub {
         catch 
         {
             my ($exception) = @_;
-	    handle_exceptions($exception);
+	    handle_exceptions($exception, "user list");
         };
     }
     else 
@@ -56,13 +56,10 @@ post '/api/common_follows' => sub {
     }
 };
 
-
-
-
 #exception handling subroutine
 
 sub handle_exceptions {
-    my $exception = @_;
+    my ($exception, $msg) = @_;  
     if ($exception->does('Core')) 
     {
 	send_error(join(' ', "Core exception: ",
@@ -70,7 +67,7 @@ sub handle_exceptions {
     } 
     else 
     {
-	send_error(join(' ', "Error getting intersection: ",
+	send_error(join(' ', "Error getting " . $msg . ": ",
 	  $exception->code, $exception->message, $exception->error)); 
     }
 }
