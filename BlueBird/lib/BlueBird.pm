@@ -25,16 +25,7 @@ post '/api/recent' => sub {
         catch 
         {
             my ($exception) = @_;
-            if ($exception->does('Core')) 
-            {
-                send_error(join(' ', "Core exception: ",
-                  $exception->code, $exception->message, $exception->error));
-            } 
-            else 
-            {
-                send_error(join(' ', "Error getting timeline: ",
-                  $exception->code, $exception->message, $exception->error)); 
-	    }
+	    handle_exceptions($exception);
         };
     }
     else 
@@ -56,16 +47,7 @@ post '/api/common_follows' => sub {
         catch 
         {
             my ($exception) = @_;
-            if ($exception->does('Core')) 
-            {
-                send_error(join(' ', "Core exception: ",
-                  $exception->code, $exception->message, $exception->error));
-            } 
-            else 
-            {
-                send_error(join(' ', "Error getting intersection: ",
-                  $exception->code, $exception->message, $exception->error)); 
-	    }
+	    handle_exceptions($exception);
         };
     }
     else 
@@ -73,5 +55,24 @@ post '/api/common_follows' => sub {
        send_error("Error: user list not given");
     }
 };
+
+
+
+
+#exception handling subroutine
+
+sub handle_exceptions {
+    my $exception = @_;
+    if ($exception->does('Core')) 
+    {
+	send_error(join(' ', "Core exception: ",
+	  $exception->code, $exception->message, $exception->error));
+    } 
+    else 
+    {
+	send_error(join(' ', "Error getting intersection: ",
+	  $exception->code, $exception->message, $exception->error)); 
+    }
+}
 
 true;
