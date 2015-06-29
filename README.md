@@ -20,12 +20,12 @@ ln -s /opt/cpanm /usr/bin/
 cpanm --self-upgrade --sudo
 
 cpan --sudo [Module::Name]
-
+```
 If running the API locally, deployment is done using Plackup Middlware, running the following command in the directory above /bin:
 ```
 plackup -r bin/app.psgi
 ```
-```
+
 **Usage**
 
 Go to the BlueBird deployment url (http://ec2-52-26-140-189.us-west-2.compute.amazonaws.com:5000 + endpoint path) to use the API. As a JSON API, the consumer will be responsable for choosing a format for response consumption. 
