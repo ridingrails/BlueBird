@@ -20,6 +20,11 @@ ln -s /opt/cpanm /usr/bin/
 cpanm --self-upgrade --sudo
 
 cpan --sudo [Module::Name]
+
+If running the API locally, deployment is done using Plackup Middlware.
+```
+plackup -r bin/app.psgi
+```
 ```
 **Usage**
 
