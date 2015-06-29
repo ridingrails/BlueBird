@@ -23,7 +23,7 @@ cpan --sudo [Module::Name]
 ```
 **Usage**
 
-Go to the BlueBird deployment url to use the API. As a JSON API, the consumer will be responsable for choosing a format for response consumption. 
+Go to the BlueBird deployment url (http://ec2-52-26-140-189.us-west-2.compute.amazonaws.com:5000 + endpoint path) to use the API. As a JSON API, the consumer will be responsable for choosing a format for response consumption. 
 
 The API currently features 2 endpoints, decribed below:
 
