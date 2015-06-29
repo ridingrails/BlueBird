@@ -31,10 +31,10 @@ POST /api/recent
 
 This endpoint will take in a JSON map of a Twitter screen name in JSON format under the tag "user" and return a list of the 20 most recent tweets from that user in JSON. A malformed or incorrect JSON input will result in a 500 error and a message returning the actual Twitter API error if relevant.
 
-SAMPLE input: '{"user": "bob"}'
+SAMPLE request body: '{"user": "bob"}'
 
 POST /api/common_follows
 
 This endpoint will take in a JSON map of Twitter screen names in JSON array format under the tag "user_list" and return a JSON array of the screen names of the Twitter users followed by all users in the list. The number of users in the input can be more than 2.
 
-SAMPLE input: '{"user_list": ["riclbb", "billyboblbb", "JonnyBallin"]}'
+SAMPLE request body: '{"user_list": ["riclbb", "billyboblbb", "JonnyBallin"]}'
