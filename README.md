@@ -1,17 +1,17 @@
-BlueBird Documentation
+**BlueBird Documentation**
 
-Getting Started - UNIX/Linux
+**Getting Started - UNIX/Linux**
 
 Create a Twitter account
 
 Sign up and create a Twitter app as a developer. Get a consumer key and secret.
 
 Install perl (the API was created in Perl 5) 
-
+```
 sudo apt-get install perl
-
+```
 Install dependencies: Dancer, List::Compare, and Net::Twitter using cpanminus
-
+```
 cd /opt/
 curl https://raw.github.com/miyagawa/cpanminus/master/cpanm > cpanm
 chmod +x cpanm
@@ -20,8 +20,8 @@ ln -s /opt/cpanm /usr/bin/
 cpanm --self-upgrade --sudo
 
 cpan --sudo [Module::Name]
-
-Usage
+```
+**Usage**
 
 Go to the BlueBird deployment url to use the API. As a JSON API, the consumer will be responsable for choosing a format for response consumption. 
 
