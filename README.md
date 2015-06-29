@@ -21,7 +21,7 @@ cpanm --self-upgrade --sudo
 
 cpan --sudo [Module::Name]
 ```
-If running the API locally, deployment is done using included Plackup middleware, running the following command in the directory above /bin:
+If running the API locally, deployment is done using included Plack middleware, running the following command in the directory above /bin:
 ```
 plackup -r bin/app.psgi
 ```
