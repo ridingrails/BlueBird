@@ -7,8 +7,8 @@ use base 'Exporter';
 sub return_object {
 	our $nt = Net::Twitter->new(
 		traits          => [ qw/AppAuth API::RESTv1_1/ ],
-		consumer_key    => 'in0v5PZIIXuTzw8ewEL6mhi0g',
-		consumer_secret => 'IHkLyL91FuoKPkigSsFtqkdGMeZ9pfLnhgRriOzQ1cdMbF4fH1',
+		consumer_key    => $ENV{'CONSUMER_KEY'},
+		consumer_secret => $ENV{'CONSUMER_SECRET'},
 	);
 	$nt->request_access_token;
         return $nt;
